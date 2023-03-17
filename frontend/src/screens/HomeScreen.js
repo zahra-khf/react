@@ -3,12 +3,13 @@ import products from '../products';
 import Product from '../components/Product'
 import {Row , Col} from 'react-bootstrap'
 import axios from 'axios'
+import { BASE_URL } from '../consts/api';
 
 const HomeScreen = () => {
   const [products , setPoducts]= useState([])
   useEffect(()=>{
     const fetchProducts = async() =>{
-      const {data} = await axios.get('/api/products')
+      const {data} = await axios.get(`${BASE_URL}/api/products`)
       setPoducts(data)
     }
     fetchProducts()
