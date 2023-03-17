@@ -3,13 +3,14 @@ import {Row , Col , Image ,Button , Card , ListGroup, ListGroupItem} from 'react
 import {Link} from 'react-router-dom' ;
 import Rating from '../components/Rating';
 import axios from 'axios'
+import { BASE_URL } from '../consts/api';
 
 
 const  ProductScreen=({match})=> {
   const [product,setPoduct]=useState({})
   useEffect(()=>{
     const fetchProduct = async() =>{
-      const {data} = await axios.get(`/api/products/${match.params.id}`)
+      const {data} = await axios.get(`${BASE_URL}/api/products/${match.params.id}`)
       setPoduct(data)
     }
     fetchProduct()
